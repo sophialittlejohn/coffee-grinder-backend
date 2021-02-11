@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             Int             @id @default(autoincrement())
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt @map(name: "updated_at")
+  name           String?
+  email          String          @unique
+  password       String
+  primaryMachine Int?
+  coffeeMachines CoffeeMachine[] @relation("MyRelationTable")
+}
+
+model Coffee {
+  id              Int              @id @default(autoincrement())
+  name            String
+  photo           String?
+  street          String?
+  zip             Int?
+  city            String?
+  rating          Int?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt @map(name: "updated_at")
+  coffeeMachine   CoffeeMachine?   @relation(fields: [coffeeMachineId], references: [id])
+  coffeeMachineId Int?
+  prices          Prices[]
+  configurations  Configurations[]
+}
+
+model Prices {
+  id        Int      @id @default(autoincrement())
+  grams     Int
+  price     Int
+  Coffee    Coffee?  @relation(fields: [coffeeId], references: [id])
+  coffeeId  Int?
+  createdAt DateTime @default(now())
+}
+
+model Configurations {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  amount    String
+  size      String
+  status    Status
+  Coffee    Coffee?  @relation(fields: [coffeeId], references: [id])
+  coffeeId  Int?
+}
+
+model CoffeeMachine {
+  id          Int      @id @default(autoincrement())
+  code        String   @unique
+  brand       String
+  coffeeTried Coffee[]
+  name        String
+  users       User[]   @relation("MyRelationTable")
+  createdAt   DateTime @default(now())
+}
+
+enum Status {
+  PERFECT
+  TOO_LATE
+  TOO_EARLY
+  NONE
+}

@@ -1,0 +1,129 @@
+type Query {
+  users: [User]
+  user: User
+  coffee(orderBy: CoffeeOrderByInput): [Coffee]
+  coffeeDetail(id: Int, orderBy: ConfigurationOrderByInput): Coffee
+  coffeeMachines: [CoffeeMachine]
+}
+
+type Mutation {
+  signup(email: String!, password: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  createCoffeeMachine(name: String!, brand: String): CoffeeMachine
+  updateUserPreferredMachine(id: Int!): User
+  createCoffee(
+    name: String!
+    coffeeMachineId: Int
+    photo: String
+    price: Int
+    grams: Int
+    rating: Int
+    street: String
+    city: String
+    zip: Int
+  ): Coffee
+  updateCoffee(
+    id: Int
+    name: String
+    street: String
+    city: String
+    zip: Int
+    rating: Int
+    photo: String
+    price: Int
+    grams: Int
+    amount: String
+    size: String
+    status: Status
+  ): Coffee
+  deleteCoffee(id: Int!): Coffee
+  connectCoffeeMachineToUser(code: String): CoffeeMachine
+  updateUser(name: String, email: String, primaryMachine: Int): User
+}
+
+type User {
+  id: ID!
+  createdAt: String
+  name: String
+  email: String!
+  password: String!
+  primaryMachine: Int
+  coffeeMachines: [CoffeeMachine]
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type Coffee {
+  id: ID!
+  name: String!
+  rating: Int
+  street: String
+  city: String
+  zip: Int
+  photo: String
+  coffeeMachine: CoffeeMachine
+  prices: [Prices]
+  configurations: [Configuration]
+  updatedAt: String
+}
+
+type CoffeeMachine {
+  id: ID!
+  code: String
+  brand: String
+  name: String
+  users: [User]
+}
+
+type File {
+  id: ID!
+  path: String!
+  filename: String!
+  mimetype: String!
+  encoding: String!
+}
+
+type Prices {
+  id: ID!
+  grams: Int
+  price: Int
+  coffeeId: Int
+}
+
+input PricesInput {
+  grams: Int
+  price: Int
+}
+
+enum Status {
+  PERFECT
+  TOO_LATE
+  TOO_EARLY
+  NONE
+}
+
+type Configuration {
+  id: Int!
+  createdAt: String
+  amount: String
+  size: String
+  status: Status
+  Coffee: Coffee
+  coffeeId: Int
+}
+
+input ConfigurationOrderByInput {
+  createdAt: Sort
+}
+
+input CoffeeOrderByInput {
+  updatedAt: Sort
+}
+
+enum Sort {
+  asc
+  desc
+}
