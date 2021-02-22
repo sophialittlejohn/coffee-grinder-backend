@@ -30,6 +30,7 @@ export async function coffee(parent, args, context) {
             include: {
                 coffeeMachine: true,
                 prices: true,
+                photo: true,
                 configurations: {
                     orderBy: {
                         createdAt: 'desc'

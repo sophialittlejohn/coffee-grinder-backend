@@ -3,7 +3,7 @@ import { getUserId } from "../../utils/auth";
 // @ts-ignore
 export const createCoffee = async (parent, args, context) => {
     const { userId } = getUserId(context);
-    const { coffeeMachineId, grams, price, ...rest } = args;
+    const { coffeeMachineId, grams, price, photo, ...rest } = args;
 
     const prices = price && grams ? {
         create: {
@@ -19,10 +19,14 @@ export const createCoffee = async (parent, args, context) => {
                 coffeeMachine: {
                     connect: { id: Number(coffeeMachineId) },
                 },
-                prices
+                prices,
+                photo: {
+                    create: photo
+                }
             },
             include: {
-                prices: true
+                prices: true,
+                photo: true
             }
         });
         return newCoffee;
@@ -65,7 +69,8 @@ export const updateCoffee = async (parent, args, context) => {
             include: {
                 prices: true,
                 coffeeMachine: true,
-                configurations: true
+                configurations: true,
+                photo: true
             },
         });
         return updatedCoffee;

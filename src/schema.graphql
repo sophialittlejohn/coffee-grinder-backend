@@ -14,13 +14,13 @@ type Mutation {
   createCoffee(
     name: String!
     coffeeMachineId: Int
-    photo: String
     price: Int
     grams: Int
     rating: Int
     street: String
     city: String
     zip: Int
+    photo: CloudinaryImageInput
   ): Coffee
   updateCoffee(
     id: Int
@@ -29,7 +29,7 @@ type Mutation {
     city: String
     zip: Int
     rating: Int
-    photo: String
+    photo: CloudinaryImageInput
     price: Int
     grams: Int
     amount: String
@@ -63,7 +63,7 @@ type Coffee {
   street: String
   city: String
   zip: Int
-  photo: String
+  photo: CloudinaryImage
   coffeeMachine: CoffeeMachine
   prices: [Prices]
   configurations: [Configuration]
@@ -78,12 +78,48 @@ type CoffeeMachine {
   users: [User]
 }
 
-type File {
-  id: ID!
-  path: String!
-  filename: String!
-  mimetype: String!
-  encoding: String!
+input CloudinaryImageInput {
+  asset_id: ID!
+  public_id: String
+  version: Int
+  version_id: String
+  signature: String
+  width: Int
+  height: Int
+  format: String
+  resource_type: String
+  created_at: String
+  bytes: Int
+  type: String
+  etag: String
+  placeholder: Boolean
+  url: String
+  secure_url: String
+  access_mode: String
+  original_filename: String
+  original_extension: String
+}
+
+type CloudinaryImage {
+  asset_id: ID!
+  public_id: String
+  version: Int
+  version_id: String
+  signature: String
+  width: Int
+  height: Int
+  format: String
+  resource_type: String
+  created_at: String
+  bytes: Int
+  type: String
+  etag: String
+  placeholder: Boolean
+  url: String
+  secure_url: String
+  access_mode: String
+  original_filename: String
+  original_extension: String
 }
 
 type Prices {

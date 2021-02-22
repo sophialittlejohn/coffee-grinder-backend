@@ -22,19 +22,20 @@ model User {
 }
 
 model Coffee {
-  id              Int              @id @default(autoincrement())
-  name            String
-  photo           String?
-  street          String?
-  zip             Int?
-  city            String?
-  rating          Int?
-  createdAt       DateTime         @default(now())
-  updatedAt       DateTime         @updatedAt @map(name: "updated_at")
-  coffeeMachine   CoffeeMachine?   @relation(fields: [coffeeMachineId], references: [id])
-  coffeeMachineId Int?
-  prices          Prices[]
-  configurations  Configurations[]
+  id                      Int              @id @default(autoincrement())
+  name                    String
+  street                  String?
+  zip                     Int?
+  city                    String?
+  rating                  Int?
+  createdAt               DateTime         @default(now())
+  updatedAt               DateTime         @updatedAt @map(name: "updated_at")
+  coffeeMachineId         Int?
+  coffeeMachine           CoffeeMachine?   @relation(fields: [coffeeMachineId], references: [id])
+  prices                  Prices[]
+  configurations          Configurations[]
+  photo                   CloudinaryImage  @relation(fields: [cloudinaryImageAsset_id], references: [asset_id])
+  cloudinaryImageAsset_id String
 }
 
 model Prices {
@@ -67,7 +68,7 @@ model CoffeeMachine {
 }
 
 model CloudinaryImage {
-  asset_id           String  @unique
+  asset_id           String   @unique @default(uuid())
   public_id          String
   version            Int
   version_id         String
@@ -87,6 +88,7 @@ model CloudinaryImage {
   access_mode        String
   original_filename  String
   original_extension String
+  Coffee             Coffee[]
 }
 
 enum Status {
