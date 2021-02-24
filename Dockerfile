@@ -2,7 +2,7 @@ FROM mhart/alpine-node:15
 
 WORKDIR /usr/app	
 
-COPY package.json yarn.lock .env ./		
+COPY package.json yarn.lock ./		
 
 COPY /dist /src/schema.graphql ./src/	
 
