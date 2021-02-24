@@ -6,7 +6,9 @@ COPY package.json yarn.lock tsconfig.json ./
 
 COPY /src /src/schema.graphql ./src/	
 
-COPY /prisma/schema.prisma .env ./	
+COPY /prisma/schema.prisma ./
+
+COPY .env ./
 
 RUN yarn install
 
