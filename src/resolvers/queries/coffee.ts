@@ -2,44 +2,51 @@ import { getUserId } from "../../utils/auth";
 
 // @ts-ignore
 export async function coffee(parent, args, context) {
+    console.log("🚀 ~ coffee")
     const { userId } = getUserId(context);
+    console.log("🚀 ~ userId", userId)
 
     if (!userId) {
         return new Error("coffee query: Not authenticated");
     } else {
-        const user = await context.prisma.user.findUnique({
-            where: {
-                id: userId,
-            },
-            include: {
-                coffeeMachines: true,
-            }
-        });
+        try {
+            const user = await context.prisma.user.findUnique({
+                where: {
+                    id: userId,
+                },
+                include: {
+                    coffeeMachines: true,
+                }
+            });
 
-        const { coffeeMachines } = user;
+            const { coffeeMachines } = user;
 
-        const foundCoffee = await context.prisma.coffee.findMany({
-            where: {
-                coffeeMachine: {
-                    id: {
-                        equals: coffeeMachines[0].id,
+            const foundCoffee = await context.prisma.coffee.findMany({
+                where: {
+                    coffeeMachine: {
+                        id: {
+                            equals: coffeeMachines[0].id,
+                        },
                     },
                 },
-            },
-            orderBy: args.orderBy,
-            include: {
-                coffeeMachine: true,
-                prices: true,
-                photo: true,
-                configurations: {
-                    orderBy: {
-                        createdAt: 'desc'
+                orderBy: args.orderBy,
+                include: {
+                    photo: true,
+                    coffeeMachine: true,
+                    prices: true,
+                    configurations: {
+                        orderBy: {
+                            createdAt: 'desc'
+                        }
                     }
-                }
-            },
-        });
+                },
+            });
 
-        return foundCoffee;
+            console.log("🚀 ~ foundCoffee", foundCoffee)
+            return foundCoffee;
+        } catch (error) {
+            return error
+        }
     }
 }
 
