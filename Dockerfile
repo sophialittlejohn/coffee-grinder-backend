@@ -2,13 +2,13 @@ FROM mhart/alpine-node:15
 
 WORKDIR /usr/app	
 
-COPY package.json yarn.lock ./		
+COPY package.json yarn.lock tsconfig.json ./	
 
-COPY /dist /src/schema.graphql ./src/	
+COPY /src /src/schema.graphql ./src/	
 
-COPY /prisma/schema.prisma ./prisma/	
+COPY /prisma/schema.prisma .env ./	
 
-RUN yarn install --production
+RUN yarn install
 
 RUN yarn build
 
