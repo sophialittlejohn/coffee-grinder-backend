@@ -8,8 +8,6 @@ COPY /src /src/schema.graphql ./src/
 
 COPY /prisma/schema.prisma ./
 
-COPY .env ./
-
 RUN yarn install
 
 RUN yarn build
