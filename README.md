@@ -1,4 +1,4 @@
-# Coffee Grindr Backend
+# Coffee Grinder Backend
 
 The backend exposes a GraphQL API built with Prisma.
 

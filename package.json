@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "coffee-grinder-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,10 +12,10 @@
     "prisma:init": "prisma init",
     "prisma:create": "prisma db push --preview-feature",
     "prisma:studio": "prisma studio",
-    "docker:build": "docker build -t coffee-grindr .",
-    "docker:start": "docker run -p 4000:4000 coffee-grindr",
-    "heroku:deploy": "heroku container:release web -a coffee-grindr",
-    "heroku:push": "heroku container:push web -a coffee-grindr"
+    "docker:build": "docker build -t coffee-grinder .",
+    "docker:start": "docker run -p 4000:4000 coffee-grinder",
+    "heroku:deploy": "heroku container:release web -a coffee-grinder",
+    "heroku:push": "heroku container:push web -a coffee-grinder"
   },
   "keywords": [],
   "author": "",
