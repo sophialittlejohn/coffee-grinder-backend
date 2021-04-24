@@ -14,23 +14,19 @@ type Mutation {
   createCoffee(
     name: String!
     coffeeMachineId: Int
-    price: Int
+    price: String
     grams: Int
     rating: Int
     street: String
-    city: String
-    zip: Int
     photo: CloudinaryImageInput
   ): Coffee
   updateCoffee(
     id: Int
     name: String
     street: String
-    city: String
-    zip: Int
     rating: Int
     photo: CloudinaryImageInput
-    price: Int
+    price: String
     grams: Int
     amount: String
     size: String
@@ -97,7 +93,7 @@ input CloudinaryImageInput {
   secure_url: String
   access_mode: String
   original_filename: String
-  original_extension: String
+  # original_extension: String
 }
 
 type CloudinaryImage {
@@ -119,19 +115,14 @@ type CloudinaryImage {
   secure_url: String
   access_mode: String
   original_filename: String
-  original_extension: String
+  # original_extension: String
 }
 
 type Prices {
   id: ID!
   grams: Int
-  price: Int
+  price: String
   coffeeId: Int
-}
-
-input PricesInput {
-  grams: Int
-  price: Int
 }
 
 enum Status {
