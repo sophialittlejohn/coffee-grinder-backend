@@ -33,6 +33,7 @@ export async function coffee(parent, args, context) {
                 include: {
                     photo: true,
                     coffeeMachine: true,
+                    address: true,
                     prices: true,
                     configurations: {
                         orderBy: {

@@ -17,7 +17,7 @@ type Mutation {
     price: String
     grams: Int
     rating: Int
-    street: String
+    address: GoogleMapsAddressInput
     photo: CloudinaryImageInput
   ): Coffee
   updateCoffee(
@@ -35,6 +35,17 @@ type Mutation {
   deleteCoffee(id: Int!): Coffee
   connectCoffeeMachineToUser(code: String): CoffeeMachine
   updateUser(name: String, email: String, primaryMachine: Int): User
+}
+
+type GoogleMapsAddress {
+  id: ID!
+  street: String
+  street_number: String
+  city: String
+  postal_code: String
+  country: String
+  lat: Int
+  lng: String
 }
 
 type User {
@@ -56,14 +67,12 @@ type Coffee {
   id: ID!
   name: String!
   rating: Int
-  street: String
-  city: String
-  zip: Int
   photo: CloudinaryImage
   coffeeMachine: CoffeeMachine
   prices: [Prices]
   configurations: [Configuration]
   updatedAt: String
+  address: GoogleMapsAddress
 }
 
 type CoffeeMachine {
@@ -72,28 +81,6 @@ type CoffeeMachine {
   brand: String
   name: String
   users: [User]
-}
-
-input CloudinaryImageInput {
-  asset_id: ID!
-  public_id: String
-  version: Int
-  version_id: String
-  signature: String
-  width: Int
-  height: Int
-  format: String
-  resource_type: String
-  created_at: String
-  bytes: Int
-  type: String
-  etag: String
-  placeholder: Boolean
-  url: String
-  secure_url: String
-  access_mode: String
-  original_filename: String
-  # original_extension: String
 }
 
 type CloudinaryImage {
@@ -153,4 +140,37 @@ input CoffeeOrderByInput {
 enum Sort {
   asc
   desc
+}
+
+input GoogleMapsAddressInput {
+  id: ID!
+  street: String
+  street_number: String
+  city: String
+  postal_code: String
+  country: String
+  lat: Int
+  lng: String
+}
+
+input CloudinaryImageInput {
+  asset_id: ID!
+  public_id: String
+  version: Int
+  version_id: String
+  signature: String
+  width: Int
+  height: Int
+  format: String
+  resource_type: String
+  created_at: String
+  bytes: Int
+  type: String
+  etag: String
+  placeholder: Boolean
+  url: String
+  secure_url: String
+  access_mode: String
+  original_filename: String
+  # original_extension: String
 }

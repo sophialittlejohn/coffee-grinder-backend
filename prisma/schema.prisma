@@ -22,20 +22,31 @@ model User {
 }
 
 model Coffee {
-  id                      Int              @id @default(autoincrement())
+  id                      Int               @id @default(autoincrement())
   name                    String
-  street                  String?
-  zip                     Int?
-  city                    String?
   rating                  Int?
-  createdAt               DateTime         @default(now())
-  updatedAt               DateTime         @updatedAt @map(name: "updated_at")
+  createdAt               DateTime          @default(now())
+  updatedAt               DateTime          @updatedAt @map(name: "updated_at")
   coffeeMachineId         Int?
-  coffeeMachine           CoffeeMachine?   @relation(fields: [coffeeMachineId], references: [id])
+  coffeeMachine           CoffeeMachine?    @relation(fields: [coffeeMachineId], references: [id])
   prices                  Prices[]
   configurations          Configurations[]
-  photo                   CloudinaryImage  @relation(fields: [cloudinaryImageAsset_id], references: [asset_id])
+  photo                   CloudinaryImage   @relation(fields: [cloudinaryImageAsset_id], references: [asset_id])
   cloudinaryImageAsset_id String
+  address                 AddressGoogleMaps @relation(fields: [addressGoogleMapsId], references: [id])
+  addressGoogleMapsId     Int
+}
+
+model AddressGoogleMaps {
+  id            Int      @id @default(autoincrement())
+  street        String
+  street_number String
+  city          String
+  postal_code   String
+  country       String
+  lng           Int
+  lat           Int
+  Coffee        Coffee[]
 }
 
 model Prices {
