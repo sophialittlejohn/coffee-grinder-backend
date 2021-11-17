@@ -45,7 +45,7 @@ type GoogleMapsAddress {
   postal_code: String
   country: String
   lat: Int
-  lng: String
+  lng: Int
 }
 
 type User {
@@ -150,7 +150,7 @@ input GoogleMapsAddressInput {
   postal_code: String
   country: String
   lat: Int
-  lng: String
+  lng: Int
 }
 
 input CloudinaryImageInput {

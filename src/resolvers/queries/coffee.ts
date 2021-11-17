@@ -2,90 +2,85 @@ import { getUserId } from "../../utils/auth";
 
 // @ts-ignore
 export async function coffee(parent, args, context) {
-    console.log("🚀 ~ coffee")
-    const { userId } = getUserId(context);
-    console.log("🚀 ~ userId", userId)
+  try {
+    const authenticated = getUserId(context);
+    console.log("🚀 ~ userId", authenticated);
+    const user = await context.prisma.user.findUnique({
+      where: {
+        // @ts-ignore
+        id: authenticated.userId,
+      },
+      include: {
+        coffeeMachines: true,
+      },
+    });
 
-    if (!userId) {
-        return new Error("coffee query: Not authenticated");
-    } else {
-        try {
-            const user = await context.prisma.user.findUnique({
-                where: {
-                    id: userId,
-                },
-                include: {
-                    coffeeMachines: true,
-                }
-            });
+    const { coffeeMachines } = user;
 
-            const { coffeeMachines } = user;
+    const foundCoffee = await context.prisma.coffee.findMany({
+      where: {
+        coffeeMachine: {
+          id: {
+            equals: coffeeMachines[0].id,
+          },
+        },
+      },
+      orderBy: args.orderBy,
+      include: {
+        photo: true,
+        coffeeMachine: true,
+        address: true,
+        prices: true,
+        configurations: {
+          orderBy: {
+            createdAt: "desc",
+          },
+        },
+      },
+    });
 
-            const foundCoffee = await context.prisma.coffee.findMany({
-                where: {
-                    coffeeMachine: {
-                        id: {
-                            equals: coffeeMachines[0].id,
-                        },
-                    },
-                },
-                orderBy: args.orderBy,
-                include: {
-                    photo: true,
-                    coffeeMachine: true,
-                    address: true,
-                    prices: true,
-                    configurations: {
-                        orderBy: {
-                            createdAt: 'desc'
-                        }
-                    }
-                },
-            });
-
-            console.log("🚀 ~ foundCoffee", foundCoffee)
-            return foundCoffee;
-        } catch (error) {
-            return error
-        }
-    }
+    return foundCoffee;
+  } catch (error) {
+    return error;
+  }
 }
 
 // @ts-ignore
 export async function coffeeDetail(parent, args, context) {
-    const { userId } = getUserId(context);
-    if (userId) {
-        const foundCoffee = await context.prisma.coffee.findUnique({
-            where: {
-                id: args.id,
-            },
-            include: {
-                configurations: {
-                    orderBy: args.orderBy,
-                }
-            }
-        });
+  const authenticated = getUserId(context);
+  if (authenticated) {
+    const foundCoffee = await context.prisma.coffee.findUnique({
+      where: {
+        id: args.id,
+      },
+      include: {
+        configurations: {
+          orderBy: args.orderBy,
+        },
+      },
+    });
 
-        return foundCoffee;
-    } else {
-        return new Error("coffeeDetail: Not authenticated");
-    }
+    return foundCoffee;
+  } else {
+    return new Error("coffeeDetail: Not authenticated");
+  }
 }
 
 // @ts-ignore
 export async function coffeeMachines(parent, args, context) {
-    const { userId } = getUserId(context);
+  const authenticated = getUserId(context);
 
-    if (userId) {
-        const user = await context.prisma.user.findUnique({
-            where: {
-                id: userId,
-            },
-            include: { coffeeMachines: true },
-        });
+  if (authenticated) {
+    const user = await context.prisma.user.findUnique({
+      where: {
+        // @ts-ignore
+        id: authenticated.userId,
+      },
+      include: { coffeeMachines: true },
+    });
 
-        const foundMachines = user?.coffeeMachines || [];
+    const foundMachines = user?.coffeeMachines || [];
 
-        return foundMachines;
-    }
+    return foundMachines;
+  }
 }

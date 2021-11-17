@@ -3,21 +3,21 @@
 
 
 "@prisma/client@^2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.18.0.tgz#bff0a206f3caf7525583c703146f835dee0b5ad6"
-  integrity sha512-tRu0bdYNKIdWnFIbtgUmZyPgtDLV3AgwO8NYXirlbSn5poygbSaV87UfOBh1NmrvjS9EBP5dQv+bs62sVB84hA==
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.25.0.tgz#a81cdf93ce93128eb35298cf8935480f3da6cca3"
+  integrity sha512-JDrAJ+oemiYAwgpYNJvCVT59S9bMbqkx78q2OT54xmmBoyYWWnn6t6oS6q8gKMiKHS6rzm/jdh3sy+2E0R+NAQ==
   dependencies:
-    "@prisma/engines-version" "2.18.0-34.da6fafb57b24e0b61ca20960c64e2d41f9e8cff1"
+    "@prisma/engines-version" "2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922"
 
-"@prisma/engines-version@2.18.0-34.da6fafb57b24e0b61ca20960c64e2d41f9e8cff1":
-  version "2.18.0-34.da6fafb57b24e0b61ca20960c64e2d41f9e8cff1"
-  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-2.18.0-34.da6fafb57b24e0b61ca20960c64e2d41f9e8cff1.tgz#c595c9d85ab2c67b67d0eb7bfbb0a3b05b41fdbe"
-  integrity sha512-+Eljsb1XItfq9B6vRTA1Oe4CQOGAxbsjtPAIORZwaU4Gt9RybnXapFlrQ8Mac89PXeSgcO4RnPSLEYhcd3kSVg==
+"@prisma/engines-version@2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922":
+  version "2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922.tgz#b353576a97d0c1952fd4f4201189e845aaafbea8"
+  integrity sha512-uZaonv3ZzLYAi99AooOe2BOBmb3k+ibVsJyZ5J3F6U1uFHTtTI9AVzC51mE09iNcgq3ZBt2CZNi5CDQZedMWyA==
 
-"@prisma/engines@2.21.0-36.e421996c87d5f3c8f7eeadd502d4ad402c89464d":
-  version "2.21.0-36.e421996c87d5f3c8f7eeadd502d4ad402c89464d"
-  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-2.21.0-36.e421996c87d5f3c8f7eeadd502d4ad402c89464d.tgz#aafed60c9506bc766e49ea60b9f8ce7da2385bc6"
-  integrity sha512-L57tvSoom2GDWDqik4wrAUBvLTAv5MTm2OOzNMBKsv0w5cX7ONoZ8KnGQN+csmdJpQVBs93dIvIBm72OO+l/9Q==
+"@prisma/engines@2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922":
+  version "2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922.tgz#68d7850d311df6d017e1b878adb19ec21483bcf0"
+  integrity sha512-vjLCk8AFRZu3D8h/SMcWDzTo0xkMuUDyXQzXekn8gzAGjb47B6LQXGR6rDoZ3/uPM13JNTLPvF62mtVaY6fVeQ==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -93,9 +93,9 @@
     graphql "*"
 
 "@types/jsonwebtoken@^8.5.1":
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz#56958cb2d80f6d74352bd2e501a018e2506a8a84"
-  integrity sha512-rNAPdomlIUX0i0cg2+I+Q1wOUr531zHBQ+cV/28PJ39bSPKjahatZZ2LMuhiguETkCgLVzfruw/ZvNMNkKoSzw==
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.2.tgz#eb71c717b3b8681bb85fbd2950c9c4c5d4506748"
+  integrity sha512-X8BOCkp+WJVNYCYIBugREtVZa4Y09Or9HDx6xqRZem5F8jJV8FuJgNessXyMuv9+U8pjnvdezASwU28uw+1scw==
   dependencies:
     "@types/node" "*"
 
@@ -105,14 +105,14 @@
   integrity sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==
 
 "@types/node@*":
-  version "14.14.22"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.22.tgz#0d29f382472c4ccf3bd96ff0ce47daf5b7b84b18"
-  integrity sha512-g+f/qj/cNcqKkc3tFqlXOYjrmZA+jNBiDzbP3kH+B+otKFqAdPgVTGP1IeKRdMml/aE69as5S4FqtxAbl+LaMw==
+  version "15.12.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.4.tgz#e1cf817d70a1e118e81922c4ff6683ce9d422e26"
+  integrity sha512-zrNj1+yqYF4WskCMOHwN+w9iuD12+dGm0rQ35HLl9/Ouuq52cEtd0CH9qMgrdNmi5ejC1/V7vKEXYubB+65DkA==
 
 "@types/node@^14.14.41":
-  version "14.14.41"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.41.tgz#d0b939d94c1d7bd53d04824af45f1139b8c45615"
-  integrity sha512-dueRKfaJL4RTtSa7bWeTK1M+VH+Gns73oCgzvYfHZywRCoPSd8EkXBL0mZ9unPTveBn+D9phZBaxuzpwjWkW0g==
+  version "14.17.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.3.tgz#6d327abaa4be34a74e421ed6409a0ae2f47f4c3d"
+  integrity sha512-e6ZowgGJmTuXa3GyaPbTGxX17tnThl2aSSizrFthQ7m9uLGZBXiGhgE55cjRZTF5kjZvYn9EOPOMljdjwbflxw==
 
 "@types/qs@*":
   version "6.9.5"
@@ -133,9 +133,9 @@
     "@types/node" "*"
 
 "@types/ws@^7.4.1":
-  version "7.4.1"
-  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-7.4.1.tgz#49eacb15a0534663d53a36fbf5b4d98f5ae9a73a"
-  integrity sha512-ISCK1iFnR+jYv7+jLNX0wDqesZ/5RAeY3wUx6QaphmocphU61h+b+PHjS18TF4WIPTu/MMzxIq2PHr32o2TS5Q==
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-7.4.5.tgz#8ff0f7efcd8fea19f51f9dd66cb8b498d172a752"
+  integrity sha512-8mbDgtc8xpxDDem5Gwj76stBDJX35KQ3YBoayxlqUQcL5BZUthiqP/VQ4PQnLHqM4PmlbyO74t98eJpURO+gPA==
   dependencies:
     "@types/node" "*"
 
@@ -1367,11 +1367,11 @@ prepend-http@^2.0.0:
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
 prisma@^2.21.2:
-  version "2.21.2"
-  resolved "https://registry.yarnpkg.com/prisma/-/prisma-2.21.2.tgz#a73b4cbe92a884aa98b317684d6741871b5e94a5"
-  integrity sha512-Ux9ovDIUHsMNLGLtuo6BBKCuuBVLpZmhM2LXF+VBUQvsbmsVfp3u5CRyHGEqaZqMibYQJISy7YZYF/RgozHKkQ==
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-2.25.0.tgz#1ebfef3e945a22c673b3e3c5100f098da475700d"
+  integrity sha512-AdAlP+PShvugljIx62Omu+eLKu6Cozz06dehmClIHSb0/yFiVnyBtrRVV4LZus+QX6Ayg7CTDvtzroACAWl+Zw==
   dependencies:
-    "@prisma/engines" "2.21.0-36.e421996c87d5f3c8f7eeadd502d4ad402c89464d"
+    "@prisma/engines" "2.25.0-36.c838e79f39885bc8e1611849b1eb28b5bb5bc922"
 
 proxy-addr@~2.0.5:
   version "2.0.6"
@@ -1719,9 +1719,9 @@ typedarray-to-buffer@^3.1.5:
     is-typedarray "^1.0.0"
 
 typescript@^4.2.4:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
-  integrity sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
+  integrity sha512-uauPG7XZn9F/mo+7MrsRjyvbxFpzemRjKEZXS4AK83oP2KKOJPvb+9cO/gmnv8arWZvhnjVOXz7B49m1l0e9Ew==
 
 undefsafe@^2.0.3:
   version "2.0.3"
