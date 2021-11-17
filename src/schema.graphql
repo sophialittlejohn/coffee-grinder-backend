@@ -44,8 +44,8 @@ type GoogleMapsAddress {
   city: String
   postal_code: String
   country: String
-  lat: Int
-  lng: Int
+  lat: String
+  lng: String
 }
 
 type User {
@@ -143,14 +143,13 @@ enum Sort {
 }
 
 input GoogleMapsAddressInput {
-  id: ID!
   street: String
   street_number: String
   city: String
   postal_code: String
   country: String
-  lat: Int
-  lng: Int
+  lat: String
+  lng: String
 }
 
 input CloudinaryImageInput {

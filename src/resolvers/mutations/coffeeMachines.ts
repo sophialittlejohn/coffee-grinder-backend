@@ -5,7 +5,7 @@ import { makeId } from "../../utils/makeId";
 // @ts-ignore
 export async function createCoffeeMachine(parent, args, context, info) {
   // @ts-ignore
-  const { userId } = getUserId(context);
+  const { userId } = await getUserId(context);
 
   const coffeeMachineCode = makeId();
 
@@ -39,7 +39,8 @@ export async function createCoffeeMachine(parent, args, context, info) {
 
 // @ts-ignore
 export const connectCoffeeMachineToUser = async (parents, args, context) => {
-  const { userId } = getUserId(context);
+  // @ts-ignore
+  const { userId } = await getUserId(context);
 
   const coffeeMachine = await context.prisma.coffeeMachine.update({
     where: { code: args.code },

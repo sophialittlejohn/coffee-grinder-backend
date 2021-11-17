@@ -44,8 +44,8 @@ model AddressGoogleMaps {
   city          String
   postal_code   String
   country       String
-  lng           Int
-  lat           Int
+  lng           String
+  lat           String
   Coffee        Coffee[]
 }
 

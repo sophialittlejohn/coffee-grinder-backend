@@ -3,7 +3,7 @@ import { getUserId } from "../../utils/auth";
 // @ts-ignore
 export async function coffee(parent, args, context) {
   try {
-    const authenticated = getUserId(context);
+    const authenticated = await getUserId(context);
     console.log("🚀 ~ userId", authenticated);
     const user = await context.prisma.user.findUnique({
       where: {
@@ -47,7 +47,7 @@ export async function coffee(parent, args, context) {
 
 // @ts-ignore
 export async function coffeeDetail(parent, args, context) {
-  const authenticated = getUserId(context);
+  const authenticated = await getUserId(context);
   if (authenticated) {
     const foundCoffee = await context.prisma.coffee.findUnique({
       where: {
@@ -68,7 +68,7 @@ export async function coffeeDetail(parent, args, context) {
 
 // @ts-ignore
 export async function coffeeMachines(parent, args, context) {
-  const authenticated = getUserId(context);
+  const authenticated = await getUserId(context);
 
   if (authenticated) {
     const user = await context.prisma.user.findUnique({
