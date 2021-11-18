@@ -4,7 +4,6 @@ import { makeId } from "../../utils/makeId";
 // currently unused since users can only have one machine atm
 // @ts-ignore
 export async function createCoffeeMachine(parent, args, context, info) {
-  // @ts-ignore
   const { userId } = await getUserId(context);
 
   const coffeeMachineCode = makeId();
